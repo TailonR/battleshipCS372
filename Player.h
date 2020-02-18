@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Ship.h"
+
 class Player
 {
 public:
@@ -13,9 +14,11 @@ public:
 	Player(std::string);
 	int getShipX(int);
 	int getShipY(int);
+	std::string getName();
+	void createShips();
 private:
-	std::vector<Ship> ships;
-	std::string name;
+	std::vector<Ship> _ships;
+	std::string _name;
 	
 };
 
