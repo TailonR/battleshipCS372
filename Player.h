@@ -11,6 +11,8 @@ public:
 
 	//The user
 	Player(std::string);
+	int getShipX(int);
+	int getShipY(int);
 private:
 	std::vector<Ship> ships;
 	std::string name;
