@@ -16,6 +16,7 @@ public:
 	int getShipY(int);
 	std::string getName();
 	void createShips();
+	int getNumOfShips();
 private:
 	std::vector<Ship> _ships;
 	std::string _name;

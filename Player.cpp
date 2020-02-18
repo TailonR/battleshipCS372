@@ -22,9 +22,7 @@ Player::Player() : _name("NPC")
 
 //This will be the user
 Player::Player(std::string userName) : _name(userName)
-{
-	createShips();
-}
+{}
 
 int Player::getShipX(int num)
 {
@@ -41,17 +39,22 @@ std::string Player::getName()
 	return _name;
 }
 
+int Player::getNumOfShips()
+{
+	return _ships.size();
+}
 void Player::createShips()
 {
 	int x = 0;
 	int y = 0;
 	for (int i = 0; i < 5; i++)
 	{
-		std::cout << "Enter x-coordinate  and y-coordinate of ship #" << (i+1) << std::endl;
+		std::cout << "Enter x-coordinate and y-coordinate of ship #" << (i+1) << std::endl;
 		std::cin >> x;
 		std::cin >> y;
 		Ship newShip(x, y);
 		_ships.push_back(newShip);
+		std::cout << "The _ships's size = " << getNumOfShips()<< std::endl;
 	}
 
 }
