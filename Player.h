@@ -2,6 +2,7 @@
 #define PLAYER_H
 #include <string>
 #include <vector>
+#include <utility>
 #include "Ship.h"
 
 class Player
@@ -17,6 +18,9 @@ public:
 	std::string getName();
 	void createShips();
 	int getNumOfShips();
+	bool playerfire(Player, std::pair<int,int>);
+	bool isItAHit(std::pair<int,int>);
+	bool haveISunkAShip();
 private:
 	std::vector<Ship> _ships;
 	std::string _name;

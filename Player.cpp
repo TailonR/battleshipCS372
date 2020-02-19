@@ -54,7 +54,28 @@ void Player::createShips()
 		std::cin >> y;
 		Ship newShip(x, y);
 		_ships.push_back(newShip);
-		std::cout << "The _ships's size = " << getNumOfShips()<< std::endl;
+	}
+}
+
+bool Player::haveISunkAShip()
+{
+
+}
+
+bool Player::playerfire(Player a, std::pair<int, int> target)
+{
+	return a.isItAHit(target);
+}
+
+bool Player::isItAHit(std::pair<int, int> target)
+{
+	for (auto v : _ships)
+	{
+		if (v.amIHit(target))
+		{
+			return true;
+		}
 	}
 
+	return false;
 }
