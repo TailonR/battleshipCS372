@@ -1,6 +1,6 @@
 //
 //  Board.cpp
-//  BattleShipR
+//  BattleShip3
 //
 //  Created by Shihhsien Wu on 2/19/20.
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
@@ -106,7 +106,7 @@ bool Board::recordHit(int x, int y)
 {
     for (int i=0; i<SHIP_NUM; i++)
     {
-        if (shipVec[i].recordHits(x, y))
+        if (shipVec[i].recordHit(x, y))
         {
             gameBoard[y][x]=isHIT; //record the hit on the board
             //tell the user that they sunk a ship

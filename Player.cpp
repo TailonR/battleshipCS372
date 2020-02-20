@@ -1,81 +1,81 @@
-#include "Player.h"
-#include <chrono>
-#include <iostream>
+//
+//  Player.cpp
+//  BattleShip3
+//
+//  Created by Shihhsien Wu on 2/19/20.
+//  Copyright © 2020 Shihhsien Wu. All rights reserved.
+//
 
-//This will be the computer
-Player::Player() : _name("NPC")
+#include "Player.hpp"
+//default constructor assigns values when no inputs supplied
+Player::Player()
 {
-	//This code creates 5 ships that will be given random coordinate points
-	//	then adds them to the vector of ships
-	srand(time(NULL));
-	Ship newShip(std::rand() % 10, std::rand() % 10); //change both "10" to the size of grid x-axis and the y-axis once we've decided what the size is
-	Ship newShip2(std::rand() % 10, std::rand() % 10); //change both "10" to the size of grid x-axis and the y-axis once we've decided what the size is
-	Ship newShip3(std::rand() % 10, std::rand() % 10); //change both "10" to the size of grid x-axis and the y-axis once we've decided what the size is
-	Ship newShip4(std::rand() % 10, std::rand() % 10); //change both "10" to the size of grid x-axis and the y-axis once we've decided what the size is
-	Ship newShip5(std::rand() % 10, std::rand() % 10); //change both "10" to the size of grid x-axis and the y-axis once we've decided what the size is
-	_ships.push_back(newShip);
-	_ships.push_back(newShip2);
-	_ships.push_back(newShip3);
-	_ships.push_back(newShip4);
-	_ships.push_back(newShip5);
+    name="";
+    isAI = false;
+    playerNumber = 1;
 }
 
-//This will be the user
-Player::Player(std::string userName) : _name(userName)
-{}
-
-int Player::getShipX(int num)
+//constructor, takes strings for name, whether the player is automatic, number
+Player::Player(std::string n, bool a, int num)
 {
-	return _ships[num].getX();
+    name=n;
+    isAI = a;
+    playerNumber = num;
 }
 
-int Player::getShipY(int num)
+// copy constructor
+Player::Player(const Player &oldPlayer)
 {
-	return _ships[num].getY();
+    name=oldPlayer.name;
+    isAI=oldPlayer.isAI;
+    playerNumber=oldPlayer.playerNumber;
+
 }
 
+//copy assignment operator
+Player& Player::operator=(const Player &obj)
+{
+    if (this != &obj)
+    {
+        name = obj.name;
+        isAI = obj.isAI;
+        playerNumber = obj.playerNumber;
+    }
+
+    return *this;
+}
+
+//getter functions (name, auto, number)
 std::string Player::getName()
 {
-	return _name;
+    return name;
 }
 
-int Player::getNumOfShips()
+bool Player::isPlayerAI()
 {
-	return _ships.size();
-}
-void Player::createShips()
-{
-	int x = 0;
-	int y = 0;
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << "Enter x-coordinate and y-coordinate of ship #" << (i+1) << std::endl;
-		std::cin >> x;
-		std::cin >> y;
-		Ship newShip(x, y);
-		_ships.push_back(newShip);
-	}
+    return isAI;
 }
 
-bool Player::haveISunkAShip()
+int Player::getPlayerNum()
 {
-
+    return playerNumber;
 }
 
-bool Player::playerfire(Player a, std::pair<int, int> target)
+//setter functions (name, auto, number)
+void Player::setName(std::string n)
 {
-	return a.isItAHit(target);
+    name=n;
+    return;
 }
 
-bool Player::isItAHit(std::pair<int, int> target)
+void Player::setAuto(bool a)
 {
-	for (auto v : _ships)
-	{
-		if (v.amIHit(target))
-		{
-			return true;
-		}
-	}
+    isAI=a;
+    return;
+}
 
-	return false;
+void Player::setPlayerNum(int n)
+{
+    playerNumber=n;
+    return;
 }

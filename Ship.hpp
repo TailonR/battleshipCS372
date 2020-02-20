@@ -1,6 +1,6 @@
 //
 //  Ship.hpp
-//  BattleShipR
+//  BattleShip3
 //
 //  Created by Shihhsien Wu on 2/19/20.
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
@@ -16,7 +16,7 @@ class Ship
     private:
         char* shipSquares;
         int shipSize;
-        int xpos, ypos;
+        int xpos, ypos; //upper left corner of ship
         bool isSunk;
         bool isHorizontal;
         std::string name;
@@ -36,6 +36,6 @@ class Ship
         std::string getName() const;
         void setPosition(int x, int y, bool h);
         void printShip();
-        bool recordHits(int hitX, int hitY);
+        bool recordHit(int hitLocX, int hitLocY);
 };
 #endif /* Ship_hpp */

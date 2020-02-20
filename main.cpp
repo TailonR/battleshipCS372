@@ -1,15 +1,27 @@
 //
 //  main.cpp
-//  BattleShipR
+//  BattleShip3
 //
 //  Created by Shihhsien Wu on 2/19/20.
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
 //
 
+#include "Game.hpp"
+#include "Player.hpp"
+#include "Utility.hpp"
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main()
+{
+    unsigned seed=time(0);
+    srand(seed);
+
+    bool continueGame=true;
+
+    while (continueGame)
+    {
+        continueGame = printMenu();
+    }
     return 0;
+
 }

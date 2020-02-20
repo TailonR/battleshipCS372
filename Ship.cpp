@@ -1,6 +1,6 @@
 //
 //  Ship.cpp
-//  BattleShipR
+//  BattleShip3
 //
 //  Created by Shihhsien Wu on 2/19/20.
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
@@ -31,13 +31,13 @@ Ship::Ship(int size, std::string n, int x, int y, bool s, bool h)
 {
     shipSize=size;
     name = n;
+    shipSquares=new char[shipSize];
+    for (int i=0; i<shipSize; i++)
+        shipSquares[i]=isSAFE; //initialize all ship squares to '_', no hit
     xpos=x;
     ypos=y;
     isSunk=s;
     isHorizontal=h;
-    shipSquares=new char[shipSize];
-    for (int i=0; i<shipSize; i++)
-        shipSquares[i]=isSAFE; //initialize all ship squares to '_', no hit
 }
 
 
@@ -137,8 +137,8 @@ void Ship::printShip()
 
 
 // function to record hit on ship, return false if no hit, true if hit
-// Note: hitX = location on lettered axis, hitY = location on numbered axis
-bool Ship::recordHits(int hitX, int hitY)
+// Note: hitLocX = loc on lettered axis, hitLocY = loc on numbered axis
+bool Ship::recordHit(int hitX, int hitY)
 {
     //check to make sure that the hit is located on the ship, return if not
     if ((isHorizontal & (hitX<xpos || hitX>=xpos+shipSize
@@ -157,7 +157,6 @@ bool Ship::recordHits(int hitX, int hitY)
     //determine whether the ship has been sunk
     //Stay false but if sunk goes true
     //Add hangman
-    //may be changed
     isSunk=true;
     for (int i=0; i<shipSize; i++)
         if (shipSquares[i]==isSAFE)

@@ -1,11 +1,11 @@
 //
 //  Constants.h
-//  BattleShipR
+//  BattleShip3
 //
 //  Created by Shihhsien Wu on 2/19/20.
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
 //
-#include <string>
+
 #ifndef Constants_h
 #define Constants_h
 // Game Constants

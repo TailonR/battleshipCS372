@@ -1,6 +1,6 @@
 //
 //  Board.hpp
-//  BattleShipR
+//  BattleShip3
 //
 //  Created by Shihhsien Wu on 2/19/20.
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
@@ -9,9 +9,8 @@
 #ifndef Board_hpp
 #define Board_hpp
 
-#include <stdio.h>
-#include "Constants.h"
 #include "Ship.hpp"
+#include "Constants.h"
 #include <vector>
 
 class Board
@@ -26,11 +25,11 @@ class Board
         Board& operator=(const Board &right);
         ~Board() {return;}; // standard destructor - no dynamically memory
         int getNumHits();
-        void printPrivateBoard();//Hidden Board
-        void printPublicBoard();//
+        void printPrivateBoard();
+        void printPublicBoard();
         char getSpaceValue(int x, int y);
         bool recordHit(int x, int y);
         bool shipPlacements(int shipNum, int x, int y, bool isHorizontal);
 
 };
-#endif /* Board_hpp */
+#endif
