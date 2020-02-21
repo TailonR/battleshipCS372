@@ -115,12 +115,6 @@ bool Board::recordHit(int x, int y)
             if (shipVec[i].isShipSunk())
             {
                 std::cout<<"You sunk the "<<shipVec[i].getName()<<"!\n";////////////////////////////////////////////////////////////////
-                std::cout << "What the hell!!!!" << std::endl;
-                std::cout << "What the hell!!!!" << std::endl;
-                std::cout << "What the hell!!!!" << std::endl;
-                std::cout << "What the hell!!!!" << std::endl;
-                std::cout << "What the hell!!!!" << std::endl;
-                std::cout << "What the hell!!!!" << std::endl;
                 saveOrRemoveSunkenShip(shipVec[i]);
             }
             
@@ -178,5 +172,12 @@ void Board::saveOrRemoveSunkenShip(Ship & mark)
     if (!hangman::playhangman(mark, *this))
     {
         shipVec.erase(shipVec.begin()+4);
+        std::cout << "You have lost hangman" << std::endl;
+        std::cout << "You have " << shipVec.size() << " ships" << std::endl;
+    }
+    else
+    {
+        std::cout << "You have won hangman" << std::endl;
+        std::cout << "You have " << shipVec.size() << " ships" << std::endl;
     }
 }
