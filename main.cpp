@@ -13,7 +13,7 @@
 
 int main()
 {
-    unsigned seed=time(0);
+    unsigned seed=0;
     srand(seed);
 
     bool continueGame=true;

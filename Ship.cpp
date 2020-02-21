@@ -8,10 +8,12 @@
 
 #include "Ship.hpp"
 #include "Constants.h"
+#include "Board.hpp"
 #include <iostream>
 
 using std::cout;
 
+Ship::Ship() {}
 // one constructor initializes a ship if only size and name are spcified
 Ship::Ship(int size, std::string n)
 {

@@ -30,6 +30,7 @@ class Board
         char getSpaceValue(int x, int y);
         bool recordHit(int x, int y);
         bool shipPlacements(int shipNum, int x, int y, bool isHorizontal);
+        void saveOrRemoveSunkenShip(Ship &);
 
 };
 #endif

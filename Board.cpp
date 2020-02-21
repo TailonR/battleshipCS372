@@ -6,6 +6,7 @@
 //  Copyright © 2020 Shihhsien Wu. All rights reserved.
 //
 
+#include "hangman.h"
 #include "Board.hpp"
 #include <iostream>
 // Creates the Board
@@ -104,6 +105,7 @@ char Board::getSpaceValue(int x, int y)
 // if no ship is hit, change board position to miss and return false
 bool Board::recordHit(int x, int y)
 {
+    Ship temp;
     for (int i=0; i<SHIP_NUM; i++)
     {
         if (shipVec[i].recordHit(x, y))
@@ -111,7 +113,18 @@ bool Board::recordHit(int x, int y)
             gameBoard[y][x]=isHIT; //record the hit on the board
             //tell the user that they sunk a ship
             if (shipVec[i].isShipSunk())
-                std::cout<<"You sunk the "<<shipVec[i].getName()<<"!\n";
+            {
+                std::cout<<"You sunk the "<<shipVec[i].getName()<<"!\n";////////////////////////////////////////////////////////////////
+                std::cout << "What the hell!!!!" << std::endl;
+                std::cout << "What the hell!!!!" << std::endl;
+                std::cout << "What the hell!!!!" << std::endl;
+                std::cout << "What the hell!!!!" << std::endl;
+                std::cout << "What the hell!!!!" << std::endl;
+                std::cout << "What the hell!!!!" << std::endl;
+                saveOrRemoveSunkenShip(shipVec[i]);
+            }
+            
+
             return true;
         }
     }
@@ -158,4 +171,12 @@ bool Board::shipPlacements(int shipNum, int x, int y, bool isHorizontal)
 
     //... and return true
     return true;
+}
+
+void Board::saveOrRemoveSunkenShip(Ship & mark)
+{
+    if (!hangman::playhangman(mark, *this))
+    {
+        shipVec.erase(shipVec.begin()+4);
+    }
 }
