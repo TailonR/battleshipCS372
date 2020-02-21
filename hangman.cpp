@@ -23,7 +23,6 @@ bool hangman::playhangman(Ship& sunkenShip, Board& board)
 		hangman::drawHangmanBeginning();
 		srand(time(NULL));
 		std::string word = vectOfWordsForHangman[rand() % vectOfWordsForHangman.size()];
-		std::cout << "The word is: " << word << std::endl;
 		hangman::fillHiddenWordWithUnderscores(word.length());
 		std::string userEntry = "";
 		while (stillPlayingHangman)
